@@ -1,6 +1,28 @@
 # PolymorphicPreloader
 
-TODO: Write a gem description
+This gem does exactly what it says — it preloads nested polymorphic associations on ActiveRecord objects.
+
+Here's a common example:
+
+```ruby
+class Transaction < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :purchase, polymorphic: true
+end
+
+class Product < ActiveRecord::Base
+  has_many :transactions, as: :purchase
+  belongs_to :company
+end
+
+class Service < ActiveRecord::Base
+  has_many :transactions, as: :purchase
+  belongs_to :provider
+end
+```
+
+Suppose we want to show all the products and services that user has purchased. Apparently we want to eager-load `products` with `companies` and `services` with `providers`.
+ActiveRecord won't allow you to do `includes(purchase: [ :company, :provider ])`. Here's where PolymorphicPreloader comes to help.
 
 ## Installation
 
@@ -20,12 +42,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Considering the above example:
 
-## Contributing
+```ruby
+transactions = current_user.transactions.includes(:purchase)
 
-1. Fork it ( https://github.com/antstorm/polymorphic_preloader/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+PolymorphicPreloader.new(transactions, :purchase).preload!(product: :company, service: :provider)
+```
+
+## TODO
+
+- Ensure good test coverage
+- Tidy up and release as a gem
+- Hook into ActiveRecord for a delayed preloading and nicer interface (e.g. `includes_polymorphic()`)
