@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Anthony Dmitriyev']
   spec.email         = ['antstorm@gmail.com']
   spec.summary       = 'Eager loading nested polymorphic associations in ActiveRecord'
+  spec.description   = 'Adds the ability to preload nested polymorphic associations in your ActiveRecord queries'
   spec.homepage      = 'https://github.com/antstorm/polymorphic_preloader'
   spec.license       = 'MIT'
 
