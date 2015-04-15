@@ -18,6 +18,8 @@ class PolymorphicPreloader
     end
   end
 
+private
+
   def preloader
     @preloader ||= ActiveRecord::Associations::Preloader.new
   end
