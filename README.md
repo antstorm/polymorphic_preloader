@@ -29,7 +29,7 @@ ActiveRecord won't allow you to do `includes(purchase: [ :company, :provider ])`
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'polymorphic_preloader'
+gem 'polymorphic_preloader', github: 'antstorm/polymorphic_preloader', branch: 'initial-version'
 ```
 
 And then execute:
