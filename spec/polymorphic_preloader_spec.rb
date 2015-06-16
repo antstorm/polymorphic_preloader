@@ -9,6 +9,12 @@ describe PolymorphicPreloader do
     expect(preloader).to be_instance_of(PolymorphicPreloader)
   end
 
+  it 'stores a local reference to ActiveRecord preloader' do
+    preloader = subject.new([], :key)
+
+    expect(preloader.send(:preloader)).to be_instance_of(ActiveRecord::Associations::Preloader)
+  end
+
   it 'stores association key' do
     preloader = subject.new([], :polymorphic)
 

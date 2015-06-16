@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'railties', '>= 4.0'
+gem 'activerecord', '>= 4.0', require: 'active_record/associations/preloader'
 
 gemspec
 
