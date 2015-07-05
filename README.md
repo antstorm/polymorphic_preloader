@@ -52,6 +52,5 @@ PolymorphicPreloader.new(transactions, :purchase).preload!(product: :company, se
 
 ## TODO
 
-- Ensure good test coverage
-- Tidy up and release as a gem
+- Test with a dummy rails app (?)
 - Hook into ActiveRecord for a delayed preloading and nicer interface (e.g. `includes_polymorphic()`)
