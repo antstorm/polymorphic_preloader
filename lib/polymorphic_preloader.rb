@@ -1,3 +1,4 @@
+require 'active_record'
 require 'polymorphic_preloader/version'
 
 class PolymorphicPreloader
@@ -21,6 +22,6 @@ class PolymorphicPreloader
 private
 
   def preloader
-    @preloader ||= ActiveRecord::Associations::Preloader.new
+    @preloader ||= ::ActiveRecord::Associations::Preloader.new
   end
 end
