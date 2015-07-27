@@ -1,5 +1,7 @@
 # PolymorphicPreloader
 
+[![Build Status](https://travis-ci.org/antstorm/polymorphic_preloader.svg?branch=master)](https://travis-ci.org/antstorm/polymorphic_preloader)
+
 This gem does exactly what it says — it preloads nested polymorphic associations on ActiveRecord objects.
 
 Here's a common example:
